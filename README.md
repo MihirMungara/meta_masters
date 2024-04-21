@@ -52,8 +52,8 @@ Special thanks to Whisper AI and Gemini API for providing the necessary tools fo
 # Screenshots
 
 # Login Page
-![Login Page]("C:\Users\mihir\Pictures\Screenshots\Screenshot 2024-04-21 114836.png")
+![Login Page](C:\Users\mihir\Pictures\Screenshots\Screenshot\ 2024-04-21\ 114836.png)
 
 # Video Upload Page
-![Video Upload](C:\Users\mihir\Pictures\Screenshots\Screenshot 2024-04-21 113221.png)
-)
+![Video Upload](C:\Users\mihir\Pictures\Screenshots\Screenshot\ 2024-04-21\ 113221.png)
+

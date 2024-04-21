@@ -1,32 +1,59 @@
-# Chickuiz - Quiz App with HTML, CSS, and JavaScript
+Video-to-Quiz Converter
+This application allows users to convert videos into quiz questions using advanced AI technologies. It provides an interactive way to engage with video content and test understanding through quizzes generated automatically from the video's content.
 
-Develop a quiz web app for final project phase 0 - batch 34 (Humble Fox) at Hacktiv8 Coding Bootcamp
+~ Features
+Video to Audio Conversion: Automatically converts uploaded videos into audio files for transcription.
+Audio Transcription: Transcribes audio content into text using Whisper AI API.
+Quiz Generation: Utilizes Gemini API to generate quiz questions based on the transcribed text.
+User Interaction: Allows users to take quizzes based on uploaded videos.
+Real-time Evaluation: Provides instant feedback on quiz answers.
+Leaderboard: Updates a leaderboard with user scores after each quiz attempt.
 
-**Chickuiz** is a quiz app, where the player attempt to answer questions correctly. It is a game to test your skill in general knowledge subject.
+~ Getting Started
+Clone this repository:
 
-:baby_chick: [**Play The Game**] **https://andreassosilo.github.io/chickuiz/**
+Copy code
+git clone https://github.com/yourusername/video-to-quiz-converter.git
 
-![alt text](https://github.com/andreassosilo/chickuiz/blob/master/assets/chickuiz.png "Chickuiz Home")
-![alt text](https://github.com/andreassosilo/chickuiz/blob/master/assets/chickuiz3.png "Chickuiz Gameplay")
-![alt text](https://github.com/andreassosilo/chickuiz/blob/master/assets/chickuiz2.png "Chickuiz Game")
-![alt text](https://github.com/andreassosilo/chickuiz/blob/master/assets/chickuiz4.png "End Page")
-![alt text](https://github.com/andreassosilo/chickuiz/blob/master/assets/chickuiz5.png "Highest Scores")
+Navigate to the project directory:
 
-### How to Play
-- Answer 10 questions by clicking the button of the multiple choices.
-- For every correct answer, you will get 10 points.
-- There will be a timer of 5 seconds per question. Make sure to answer within the time limit!
-- At the end of the game, your accumulated score will be displayed on the result display.
+Copy code
+cd video-to-quiz-converter
 
-### Score & Rank
-- :hatching_chick: [**Noob Egg**] : 0-40 points
-- :hatched_chick: [**Happy Chick**] : 50-90 points
-- :chicken: [**Full Headed Chicken**] : 100 points (__highest__)
+Install dependencies:
+bash
+Copy code
+npm install
 
-### Build using:
-- HTML5
-- CSS3
-- Vanilla JavaScript
+Set up the required APIs (Whisper AI, Gemini API).
 
-### License
-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Run the application:
+bash
+Copy code
+npm start
+Access the application through your web browser at http://localhost:3000.
+
+
+~ Usage
+Login: Start by logging in through login.html.
+Upload Video: After logging in, go to dragndrop.html to upload a video file.
+Quiz Generation: The uploaded video will be converted to audio, transcribed, and converted into quiz questions using AI.
+Take Quiz: Access the generated quiz on index.html and take the quiz based on the video content.
+Leaderboard: Your score will be updated on the leaderboard after completing the quiz.
+Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+~ License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+~ Acknowledgments
+Special thanks to Whisper AI and Gemini API for providing the necessary tools for audio transcription and quiz generation.
+
+~ Screenshots
+
+# Login Page
+![Login Page](C:\Users\mihir\Pictures\Screenshots\Screenshot 2024-04-21 114836.png)
+
+#Video Upload Page
+![Video Upload](C:\Users\mihir\Pictures\Screenshots\Screenshot 2024-04-21 113221.png)
+)

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Drop</title>
+<style>
+    #dropArea {
+        width: 300px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        text-align: center;
+        line-height: 200px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+<div id="dropArea" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+    Drop video here
+</div>
+<p id="status"></p>
+
+<script>
+    function dragOverHandler(event) {
+        event.preventDefault();
+    }
+
+    function dropHandler(event) {
+        event.preventDefault();
+        
+        var files = event.dataTransfer.files;
+        
+        if (files.length > 0) {
+            var video = files[0];
+            var videoUrl = URL.createObjectURL(video);
+            document.getElementById('status').innerHTML = 'Video dropped: ' + video.name + '<br>Location: ' + videoUrl;
+            // You can use videoUrl variable to access the location of the dropped video
+        }
+    }
+</script>
+</body>
+</html>

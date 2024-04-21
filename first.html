@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #007bff; /* Header color */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            margin-left: auto;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Adjust as needed */
+        }
+
+        .video-container iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #startButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #007bff; /* Footer color */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        #questionContainer {
+            margin-top: 20px;
+        }
+
+        #dropBox {
+            border: 2px dashed #ccc;
+            background-color: #f9f9f9;
+            width: 500px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+        }
+
+        #dropBox.highlight {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <div class="logo">Logo</div> -->
+        <a href="/first.html" class="title"><marquee direction="left" scrollamount="8">Meta Masters</marquee></a>
+    </header>
+
+    <section class="videos">
+        <div class="container mx-auto text-center">
+            <div id="dropBox">Drop your video here</div>
+            <div class="video-container" id="videoContainer"></div>
+            <div class="question-container">
+                <div id="questionContainer" class="container mx-auto text-center mt-8"></div>
+                <button onclick="startQuiz()" id="startButton">Start Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2024 Your Website. All Rights Reserved.
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        let score = 0;
+        let questions = [];
+
+        // Get references to the drop zone and video container
+        const dropBox = document.getElementById('dropBox');
+        const videoContainer = document.getElementById('videoContainer');
+
+        // Prevent default behavior for file drop events
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropBox.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+
+        // Highlight drop area when dragging over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropBox.addEventListener(eventName, highlight, false);
+        });
+
+        // Unhighlight drop area when dragging leaves it
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropBox.addEventListener(eventName, unhighlight, false);
+        });
+
+        // Handle file drop event
+        dropBox.addEventListener('drop', handleDrop, false);
+
+        // Prevent default behavior for file drop events
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Highlight drop area when dragging over it
+        function highlight() {
+            dropBox.classList.add('highlight');
+        }
+
+        // Unhighlight drop area when dragging leaves it
+        function unhighlight() {
+            dropBox.classList.remove('highlight');
+        }
+
+        // Handle file drop event
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+
+            handleFiles(files);
+        }
+
+        // Handle dropped files
+        function handleFiles(files) {
+            // Check if any files were dropped
+            if (files.length > 0) {
+                const file = files[0]; // Only handle the first file for simplicity
+
+                // Check if the dropped file is a video
+                if (file.type.startsWith('video/')) {
+                    // Create a URL for the dropped video file
+                    const videoURL = URL.createObjectURL(file);
+                    console.log(videoURL);
+                    // Replace the drop box with the video
+                    videoContainer.innerHTML = `
+                        <video controls>
+                            <source src="${videoURL}" type="${file.type}">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                    dropBox.style.display = 'none'; // Hide the drop box
+                } else {
+                    alert('Please drop a video file.');
+                }
+            }
+        }
+
+        async function startQuiz() {
+            const response = await fetch("quiz_data.json");
+            questions = await response.json();
+            renderQuestion(currentIndex);
+
+            // Hide the "Start Quiz" button
+            const startButton = document.getElementById("startButton");
+            startButton.style.display = "none";
+        }
+
+        function renderQuestion(index) {
+            const questionContainer = document.getElementById("questionContainer");
+            questionContainer.innerHTML = "";
+            const question = questions[index];
+            const questionElement = document.createElement("div");
+            questionElement.classList.add(
+                "relative",
+                "bg-white",
+                "rounded-lg",
+                "shadow-lg",
+                "p-6"
+            );
+            questionElement.innerHTML = `
+                <h3 class="text-xl font-semibold mb-2">${index + 1}. ${
+            question.question
+            }</h3>
+            `;
+
+            question.options.forEach((option, index) => {
+                const optionButton = document.createElement("button");
+                optionButton.textContent = `${String.fromCharCode(
+                    97 + index
+                )}. ${option}`; // Using ASCII values to label options from 'a' to 'd'
+                optionButton.classList.add("option-button", "mt-4"); // Added mt-4 for margin-top
+                optionButton.addEventListener("click", () => {
+                    if (option === question.answer) {
+                        score++;
+                    }
+                    currentIndex++;
+                    if (currentIndex === questions.length) {
+                        // Last question, show score
+                        renderScore();
+                    } else {
+                        renderQuestion(currentIndex);
+                    }
+                });
+                questionElement.appendChild(optionButton);
+            });
+
+            questionContainer.appendChild(questionElement);
+            // Adjust space below dynamically based on the number of questions
+            const spaceBelow = document.createElement("div");
+            spaceBelow.style.height = `${20 * (questions.length - index - 1)}px`;
+            questionContainer.appendChild(spaceBelow);
+        }
+
+        function renderScore() {
+            const questionContainer = document.getElementById("questionContainer");
+            questionContainer.innerHTML = `
+                <div class="container mx-auto text-center">
+                    <h2>Your score: ${score} out of ${questions.length}</h2>
+                </div>
+            `;
+
+            // Remove the "Start Quiz" button if it exists
+            const startButton = document.getElementById("startButton");
+            if (startButton) {
+                startButton.remove();
+            }
+        }
+        
+    </script>
+</body>
+</html>

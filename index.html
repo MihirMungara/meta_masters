@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Meta Masters</title>
+    <meta name="keywords" content="HTML, CSS, JavaScript, Quiz, Andreas, Sosilo, Web, Apps, Hacktiv8">
+
+    <meta name="author" content="Andreas Sosilo">
+    <meta name="title" property="og:title" content="Chickuiz - General Knowledge Quiz App">
+    <meta property="og:type" content="Website">
+    <meta name="image" property="og:image"
+        content="/assets/metaDataChickuiz.png">
+    <meta name="description" property="og:description"
+        content="A quiz web app for final project phase 0 - batch 34 (Humble Fox) at Hacktiv8 Coding Bootcamp">
+    <meta property="og:url" content="https://github.com/andreassosilo/chickuiz/blob/master/README.md" />
+
+    <meta name="theme-color" content="#273442" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Chickuiz PWA">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-152x152.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1 style="color: rgb(255, 255, 147); font-family: Lugrasimo; border: 2px solid rgb(255, 255, 147); padding: 6px 20px; outline: 3.5px solid rgb(255, 255, 147); outline-offset: -10px;">Meta Masters</h1>
+            <h4>Welcome! Please select an option</h4>
+            <a class="btn" href="game.html">Play</a>
+            <a class="btn" href="highscores.html">High Scores</a>
+            <a class="btn" href="gameplay.html">How to Play</a>
+        </div>
+    </div>
+    <script>
+        // Progressive Web App: Register service worker.
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/chickuiz/service-worker.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('Service worker registration successful with scope: ', registration
+                        .scope);
+                }, function (err) {
+                    // Registration was failed
+                    console.log('Service worker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

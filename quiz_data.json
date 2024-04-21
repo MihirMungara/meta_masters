@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What time does Gemini usually wake up?",
+    "choice1": "6 a.m.",
+    "choice2": "7 a.m.",
+    "choice3": "8 a.m.",
+    "choice4": "9 a.m.",
+    "answer": 2
+  },
+  {
+    "question": "What does Gemini usually have for breakfast?",
+    "choice1": "A full breakfast with eggs and bacon",
+    "choice2": "A cup of coffee",
+    "choice3": "A bowl of cereal",
+    "choice4": "Pancakes and syrup",
+    "answer": 2
+  },
+  {
+    "question": "Where does Gemini have lunch?",
+    "choice1": "At home",
+    "choice2": "At a cafe with friends",
+    "choice3": "At their desk",
+    "choice4": "At a restaurant",
+    "answer": 2
+  },
+  {
+    "question": "What does Gemini do after dinner?",
+    "choice1": "Go to the gym",
+    "choice2": "Take their dog for a walk",
+    "choice3": "Read a book",
+    "choice4": "Play video games",
+    "answer": 2
+  },
+  {
+    "question": "What time does Gemini go to sleep?",
+    "choice1": "9 p.m.",
+    "choice2": "10 p.m.",
+    "choice3": "11 p.m.",
+    "choice4": "12 a.m.",
+    "answer": 2 
+  }
+]

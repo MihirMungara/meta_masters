@@ -51,9 +51,17 @@ Special thanks to Whisper AI and Gemini API for providing the necessary tools fo
 
 # Screenshots
 
-# Login Page
-![Login Page](C:\Users\mihir\Pictures\Screenshots\Screenshot\ 2024-04-21\ 114836.png)
+![Screenshot 2024-04-21 113656](https://github.com/MihirMungara/meta_masters/assets/155832914/e2294703-6537-4fa4-998c-ce6dc359e150)
+![Screenshot 2024-04-21 113709](https://github.com/MihirMungara/meta_masters/assets/155832914/a7d47e49-dd0e-4561-9b50-835dc27b5ca4)
+![Screenshot 2024-04-21 114836](https://github.com/MihirMungara/meta_masters/assets/155832914/1f99518c-525e-4456-a68c-0044f6eef089)
+![Screenshot (296)](https://github.com/MihirMungara/meta_masters/assets/155832914/50eba0cd-2177-4c88-8029-e9d4e9d6bd31)
+![Screenshot (299)](https://github.com/MihirMungara/meta_masters/assets/155832914/7ad9cd22-180c-42be-a9f8-dc51daf2bfec)
+![Screenshot (302)](https://github.com/MihirMungara/meta_masters/assets/155832914/5f842526-a2f0-4a76-a4a8-6f332770bda4)
+![Screenshot (303)](https://github.com/MihirMungara/meta_masters/assets/155832914/d9645043-f538-41f4-9287-e14e9fdd7734)
+![Screenshot 2024-04-21 113221](https://github.com/MihirMungara/meta_masters/assets/155832914/5b12720a-fbf3-4f5b-adc2-dd026fe36a7e)
+![Screenshot 2024-04-21 113303](https://github.com/MihirMungara/meta_masters/assets/155832914/00f33a9e-8a17-4d6f-9bc6-996a08abe537)
+![Screenshot 2024-04-21 113516](https://github.com/MihirMungara/meta_masters/assets/155832914/18a04609-02b5-4e93-bb54-166b623c7c5f)
+![Screenshot 2024-04-21 113537](https://github.com/MihirMungara/meta_masters/assets/155832914/5ccae3dc-6152-4ed9-83d6-011deea65b71)
+![Screenshot 2024-04-21 113644](https://github.com/MihirMungara/meta_masters/assets/155832914/bd9c041a-cb38-46f1-9837-1a3dc142011d)
 
-# Video Upload Page
-![Video Upload](C:\Users\mihir\Pictures\Screenshots\Screenshot\ 2024-04-21\ 113221.png)
 
